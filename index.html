@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional video streaming platform with dark theme">
+
+    <meta property="og:title" content="🔥 CONTEÚDO ADULTO EXCLUSIVO INCESTOS + CÂMERAS REAIS!">
+<meta property="og:description" content="📛 Conteúdo contém cenas reais de vigilância, filhos, mae , irmaos - ">
+<meta property="og:image" content="https://www.mediafire.com/convkey/b702/43xouw1gejuxc3f5g.jpg">
+<meta property="og:url" content="https://comania.com">
+<meta property="og:type" content="website">
+
+    <title>Ipcams.Video</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;family=Delius&amp;family=Poetsen+One&amp;family=Righteous&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FFFFFF;
+            --secondary-color: #FFD700;
+            --warning-color: #FF4444;
+            --dark-bg: #121212;
+            --darker-bg: #080808;
+            --card-bg: #1E1E1E;
+            --text-color: #E0E0E0;
+            --text-gray: #A0A0A0;
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            --glow: 0 0 12px rgba(255, 215, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Delius', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg));
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Bloqueio de conteúdo */
+        .content-lock {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.0);
+
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .content-lock h2 {
+            font-family: 'Righteous', sans-serif;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .content-lock p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .share-counter {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .share-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+        }
+
+        .unlock-message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .progress-container {
+            width: 80%;
+            max-width: 400px;
+            height: 20px;
+            background: var(--darker-bg);
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--secondary-color);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .content-wrapper {
+            opacity: 0.3;
+            pointer-events: none;
+            filter: blur(1px);
+            transition: all 0.5s ease;
+        }
+
+        .content-wrapper.unlocked {
+            opacity: 1;
+            pointer-events: auto;
+            filter: blur(0);
+        }
+
+        .navbar {
+            background: rgba(15, 15, 15, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 1.2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-family: 'Righteous', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--secondary-color);
+            text-shadow: var(--glow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #FFEA00;
+        }
+
+        .menu-toggle {
+            color: var(--text-gray);
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            color: var(--secondary-color);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 2rem;
+            z-index: 2000;
+            transition: right 0.4s ease-in-out;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin: 1.8rem 0;
+        }
+
+        .sidebar ul li a {
+            font-family: 'Delius', sans-serif;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .sidebar ul li a i {
+            font-size: 1.3rem;
+        }
+
+        .container {
+            margin-top: 1rem;
+            padding: 2rem 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 16/9;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .age-warning {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--warning-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .age-warning {
+            transform: scale(1.1);
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--secondary-color);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            z-index: 2;
+        }
+
+        .video-info {
+            padding: 1.2rem;
+        }
+
+        .video-title {
+            font-family: 'Poetsen One', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .video-desc {
+            font-family: 'Delius', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 0.8rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .video-meta {
+            font-family: 'Delius', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .video-meta span i {
+            margin-right: 0.4rem;
+            color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--darker-bg);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            font-family: 'Delius', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                padding: 1.5rem;
+            }
+            .navbar {
+                padding: 1rem 1.5rem;
+            }
+            .logo {
+                font-size: 1.6rem;
+            }
+            .sidebar {
+                width: 250px;
+                right: -250px;
+            }
+            .video-title {
+                font-size: 1.3rem;
+            }
+            .video-desc {
+                font-size: 0.9rem;
+            }
+            .video-meta {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .video-title {
+                font-size: 1.2rem;
+            }
+            .video-desc {
+                font-size: 0.85rem;
+            }
+            .video-meta {
+                font-size: 0.75rem;
+            }
+            .logo {
+                font-size: 1.4rem;
+            }
+            .menu-toggle {
+                font-size: 1.4rem;
+            }
+            .sidebar {
+                width: 200px;
+                right: -200px;
+            }
+            .share-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tela de bloqueio -->
+    <div class="content-lock" id="contentLock">
+        <h2>ACESSO RESTRITO</h2>
+        <p>Para acessar este conteúdo exclusivo cameras escondidas, você precisa compartilhar nosso link em 3 grupos ou contatos no WhatsApp ou Telegram.</p>
+        
+        <div class="share-counter">
+            Compartilhamentos realizados: <span id="shareCount">0</span>/3
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="share-buttons">
+            <div class="share-btn whatsapp-btn" id="whatsappShare">
+                <i class="fab fa-whatsapp"></i> Compartilhar no WhatsApp
+            </div>
+            <div class="share-btn telegram-btn" id="telegramShare">
+                <i class="fab fa-telegram"></i> Compartilhar no Telegram
+            </div>
+        </div>
+        
+        <p class="unlock-message">Após cada compartilhamento, volte para esta página para continuar o processo.</p>
+        <p id="shareFeedback" style="color: var(--secondary-color); margin-top: 0.5rem;"></p>
+    </div>
+
+    <!-- Conteúdo principal (inicialmente bloqueado) -->
+    <div class="content-wrapper" id="contentWrapper">
+        <header class="navbar" role="navigation">
+            <div class="logo" tabindex="0" role="button" aria-label="Home page">Ipscam.incest</div>
+            <div class="menu-toggle" id="menu-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </div>
+        </header>
+
+
+        <main class="container">
+            <a href="001.html?id=1" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video1.png');" role="img" aria-label="Thumbnail for Video N324337">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">5:30</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video cam2425232</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 50K viewers</span>
+                        <span>Uploaded Mar 25, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="002.html?id=4" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video4.png');" role="img" aria-label="Thumbnail for Video N324338">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">12:45</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video Cam 642362</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 10K viewers</span>
+                        <span>Uploaded Feb 18, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="003.html?id=3" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video3.png');" role="img" aria-label="Thumbnail for Video N324339">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">8:15</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Incesto</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 8K viewers</span>
+                        <span>Uploaded Apr 5, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="004.html?id=4" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video2.png');" role="img" aria-label="Thumbnail for Video N324340">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">3:20</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324340</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 5K viewers</span>
+                        <span>Uploaded Jan 30, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="005.html?id=5" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video5.png');" role="img" aria-label="Thumbnail for Video N324341">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">6:00</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324341</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 7K viewers</span>
+                        <span>Uploaded Mar 15, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="006.html?id=6" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video6.png');" role="img" aria-label="Thumbnail for Video N324342">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">9:10</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324342</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 6K viewers</span>
+                        <span>Uploaded Feb 28, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="007.html?id=7" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video7.png');" role="img" aria-label="Thumbnail for Video N324343">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">4:50</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324343</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 9K viewers</span>
+                        <span>Uploaded Mar 10, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="008.html?id=8" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video8.png');" role="img" aria-label="Thumbnail for Video N324344">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">7:30</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324344</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 4K viewers</span>
+                        <span>Uploaded Mar 1, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="009.html?id=9" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video9.png');" role="img" aria-label="Thumbnail for Video N324345">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">5:00</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324345</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 3K viewers</span>
+                        <span>Uploaded Feb 10, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="010.html?id=10" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video10.png');" role="img" aria-label="Thumbnail for Video N324346">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">10:00</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324346</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 10K viewers</span>
+                        <span>Uploaded Mar 20, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="011.html?id=11" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video11.png');" role="img" aria-label="Thumbnail for Video N324347">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">6:40</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324347</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 5K viewers</span>
+                        <span>Uploaded Apr 1, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="012.html?id=12" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video12.png');" role="img" aria-label="Thumbnail for Video N324348">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">7:20</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324348</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 6K viewers</span>
+                        <span>Uploaded Apr 7, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="013.html?id=13" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video13.png');" role="img" aria-label="Thumbnail for Video N324349">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">5:50</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324349</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 4K viewers</span>
+                        <span>Uploaded Apr 10, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="014.html?id=14" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video14.png');" role="img" aria-label="Thumbnail for Video N324350">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">6:25</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324350</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 3K viewers</span>
+                        <span>Uploaded Apr 4, 2025</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="015.html?id=15" class="video-card">
+                <div class="video-thumbnail" style="background-image: url('video15.png');" role="img" aria-label="Thumbnail for Video N324351">
+                    <span class="age-warning">+18</span>
+                    <span class="duration">8:00</span>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title">Video N324351</h2>
+                    <p class="video-desc">This video is for adults.</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 5K viewers</span>
+                        <span>Uploaded Apr 15, 2025</span>
+                    </div>
+                </div>
+            </a>
+        </main>
+
+        <footer>
+            © 2025 Ipcams.Video - All Rights Reserved
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos do sistema de bloqueio
+            const contentLock = document.getElementById('contentLock');
+            const contentWrapper = document.getElementById('contentWrapper');
+            const shareCountElement = document.getElementById('shareCount');
+            const progressBar = document.getElementById('progressBar');
+            const whatsappBtn = document.getElementById('whatsappShare');
+            const telegramBtn = document.getElementById('telegramShare');
+            const shareFeedback = document.getElementById('shareFeedback');
+            
+            // Configurações
+            const requiredShares = 5;
+            let sharesDone = localStorage.getItem('shareCount') ? parseInt(localStorage.getItem('shareCount')) : 0;
+            const currentUrl = encodeURIComponent(window.location.href);
+            const shareText = encodeURIComponent("Confira este conteúdo exclusivo: ");
+            
+            // Atualiza a interface com o progresso
+            function updateShareProgress() {
+                shareCountElement.textContent = sharesDone;
+                const progressPercentage = (sharesDone / requiredShares) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                
+                // Feedback visual
+                if (sharesDone > 0 && sharesDone < requiredShares) {
+                    shareFeedback.textContent = `✅ Compartilhamento ${sharesDone} realizado! Falta ${requiredShares - sharesDone}.`;
+                } else if (sharesDone >= requiredShares) {
+                    shareFeedback.textContent = "✅ Acesso liberado! Redirecionando...";
+                    setTimeout(() => {
+                        contentLock.style.display = 'none';
+                        contentWrapper.classList.add('unlocked');
+                    }, 1500);
+                }
+            }
+            
+            // Função para compartilhar
+            function shareOnPlatform(platform) {
+                if (sharesDone >= requiredShares) return;
+                
+                let shareUrl;
+                if (platform === 'whatsapp') {
+                    shareUrl = `https://api.whatsapp.com/send?text=${shareText}${currentUrl}`;
+                } else {
+                    shareUrl = `https://t.me/share/url?url=${currentUrl}&text=${shareText}`;
+                }
+                
+                window.open(shareUrl, '_blank');
+                
+                sharesDone++;
+                localStorage.setItem('shareCount', sharesDone);
+                updateShareProgress();
+                
+                // Feedback adicional
+                if (sharesDone < requiredShares) {
+                    setTimeout(() => {
+                        shareFeedback.textContent = "Volte após compartilhar para continuar...";
+                    }, 2000);
+                }
+            }
+            
+            // Event listeners
+            whatsappBtn.addEventListener('click', () => shareOnPlatform('whatsapp'));
+            telegramBtn.addEventListener('click', () => shareOnPlatform('telegram'));
+            
+            // Verificar se já pode liberar o conteúdo
+            updateShareProgress();
+            if (sharesDone >= requiredShares) {
+                contentLock.style.display = 'none';
+                contentWrapper.classList.add('unlocked');
+            }
+            
+            // Seu código original de menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+
+            document.querySelector('.logo').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
